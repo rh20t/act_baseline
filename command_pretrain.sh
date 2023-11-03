@@ -1,0 +1,1 @@
+python train.py --task_name task_0013 --ckpt_dir logs/log_pretrain_task0013 --dataset_root /data --batch_size 24 --seed 233 --num_epoch 50 --save_epoch 5 --lr 1e-5 --kl_weight 10 --chunk_size 20 --hidden_dim 512 --dim_feedforward 3200
