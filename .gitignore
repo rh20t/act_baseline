@@ -14,5 +14,4 @@
 *.ply
 .DS_Store
 .history/
-valid_data_dict*.json
 rh20t_cleaned_data.json
