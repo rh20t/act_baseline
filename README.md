@@ -1,12 +1,18 @@
 # ACT Baseline for RH20T Dataset
-Example for training ACT on RH20T dataset.
+Example for training ACT on RH20T dataset. This project is built on top of [ACT](https://github.com/tonyzhaozh/act/tree/main).
 
 ## Installation
+
+```bash
+git clone https://github.com/rh20t/act_baseline.git
+cd act_baseline
+pip install -r requirements.txt
+```
 
 ## Loading data with cleaned data list
 Sometimes you may encounter data loading errors due to NaN annotations in a few amount of scenes. We recommand loading data with ``rh20t_cleaned_data.json`` to reduce program errors and accelerate data processing.
 
-For each scene, this file contains a subset of the original video, which is implemented by reducing redundant frames according to their tcp differences. The selected frames is saved as timestamps like "1629432627550".
+For each scene, this file contains a subset of the original video, which is implemented by removing redundant frames according to their tcp differences. The selected frames is saved as timestamps like "1629432627550".
 
 The structure in the file is as follows:
 ```bash
@@ -49,10 +55,10 @@ The structure in the file is as follows:
 
 ```
 
-You can download ``rh20t_cleaned_data.json`` [here]() and put it under [dataset](dataset) folder. The usage is shown in [dataset/rh20t.py](dataset/rh20t.py).
+Download ``rh20t_cleaned_data.json`` [here]() and put it under [dataset](dataset) folder. The usage is shown in [dataset/rh20t.py](dataset/rh20t.py).
 
 ## Pretrain on RH20T
-You can train an ACT model on RH20T by running the following command:
+Train the ACT model on RH20T by running the following command:
 ```bash
 python train.py --task_name [TASK_NAME] --ckpt_dir [YOUR_LOG_DIR] --dataset_root [RH20T_DIR] --batch_size 24 --seed 233 --num_epoch 50 --save_epoch 5 --lr 1e-5 --kl_weight 10 --chunk_size 20 --hidden_dim 512 --dim_feedforward 3200
 ```
